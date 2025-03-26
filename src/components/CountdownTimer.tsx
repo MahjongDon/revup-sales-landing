@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 interface CountdownTimerProps {
-  targetDate: Date;
+  initialDuration?: {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
   className?: string;
 }
 
@@ -14,23 +19,29 @@ interface TimeLeft {
   seconds: number;
 }
 
-const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+const CountdownTimer = ({ 
+  initialDuration = { days: 1, hours: 5, minutes: 20, seconds: 0 },
+  className 
+}: CountdownTimerProps) => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(initialDuration);
+  const [startTime] = useState<number>(Date.now());
+  const [totalSeconds] = useState<number>(
+    initialDuration.days * 86400 + 
+    initialDuration.hours * 3600 + 
+    initialDuration.minutes * 60 + 
+    initialDuration.seconds
+  );
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = targetDate.getTime() - new Date().getTime();
+      const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+      const remainingSeconds = Math.max(0, totalSeconds - elapsedSeconds);
       
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / 1000 / 60) % 60);
-        const seconds = Math.floor((difference / 1000) % 60);
+      if (remainingSeconds > 0) {
+        const days = Math.floor(remainingSeconds / 86400);
+        const hours = Math.floor((remainingSeconds % 86400) / 3600);
+        const minutes = Math.floor((remainingSeconds % 3600) / 60);
+        const seconds = remainingSeconds % 60;
         
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
@@ -42,7 +53,7 @@ const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [startTime, totalSeconds]);
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">

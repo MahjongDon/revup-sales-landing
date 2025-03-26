@@ -4,9 +4,6 @@ import Button from '../Button';
 import CountdownTimer from '../CountdownTimer';
 
 const Hero = () => {
-  // Setting the event date to February 15, 2025
-  const eventDate = new Date('2025-02-15T09:00:00');
-  
   return (
     <section id="home" className="min-h-screen relative flex items-center pt-24 pb-16">
       {/* Background elements */}
@@ -32,8 +29,8 @@ const Hero = () => {
           </p>
 
           <div className="mb-8 animate-fade-in" style={{ animationDelay: '500ms' }}>
-            <p className="text-lg text-white mb-4">Event Starts In:</p>
-            <CountdownTimer targetDate={eventDate} />
+            <p className="text-lg text-white mb-4">Sale Ends In:</p>
+            <CountdownTimer initialDuration={{ days: 1, hours: 5, minutes: 20, seconds: 0 }} />
           </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '600ms' }}>
