@@ -22,7 +22,7 @@ const Button = ({
   animated = false,
   ...props
 }: ButtonProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'href'>) => {
-  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-revup-dark focus:ring-revup-red";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-revup-dark focus:ring-revup-red";
   
   const variants = {
     primary: "bg-revup-red hover:bg-opacity-90 text-white",
@@ -36,7 +36,8 @@ const Button = ({
     lg: "px-8 py-4 text-lg"
   };
 
-  const animation = animated ? "transform hover:scale-105 animate-pulse-subtle" : "";
+  // Only apply the transform scale, remove the pulse animation
+  const animation = animated ? "transform hover:scale-105" : "";
 
   const buttonClasses = cn(
     baseStyles,
@@ -48,7 +49,11 @@ const Button = ({
 
   if (href) {
     return (
-      <a href={href} className={buttonClasses}>
+      <a 
+        href={href} 
+        className={buttonClasses}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {children}
       </a>
     );

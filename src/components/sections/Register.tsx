@@ -63,7 +63,7 @@ const Register = () => {
             </ul>
             
             <div className="text-center pt-4">
-              <Button variant="primary" size="lg" className="w-full md:w-auto" animated>
+              <Button variant="primary" size="lg" className="w-full md:w-auto">
                 Reserve Your Seat Now
               </Button>
               
