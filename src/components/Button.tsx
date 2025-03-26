@@ -21,7 +21,7 @@ const Button = ({
   href,
   animated = false,
   ...props
-}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: ButtonProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'href'>) => {
   const baseStyles = "inline-flex items-center justify-center font-semibold rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-revup-dark focus:ring-revup-red";
   
   const variants = {
@@ -48,7 +48,7 @@ const Button = ({
 
   if (href) {
     return (
-      <a href={href} className={buttonClasses} {...props}>
+      <a href={href} className={buttonClasses}>
         {children}
       </a>
     );
