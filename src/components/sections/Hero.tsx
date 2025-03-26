@@ -24,7 +24,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-white mb-6 leading-tight tracking-tight animate-fade-in" style={{ animationDelay: '200ms' }}>
-            Unlock the Secrets to <span className="text-gradient">10X Your Car Sales</span> in 2025!
+            Unlock the Secrets to <span className="text-gradient">10X Your Sales</span> in 2025!
           </h1>
           
           <p className="text-xl md:text-2xl text-revup-gray mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '400ms' }}>

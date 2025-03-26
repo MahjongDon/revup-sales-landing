@@ -47,8 +47,8 @@ const FAQ = () => {
       answer: "Your registration includes full access to all three days of the event, a comprehensive workbook, lunch and refreshments each day, access to the exclusive networking reception, and a 30-day follow-up coaching call to ensure you're implementing what you've learned."
     },
     {
-      question: "Is this seminar only for car salespeople?",
-      answer: "While the RevUp Sales Summit is specifically designed for automotive sales professionals, the principles and techniques taught are applicable across various sales industries. However, all examples and case studies will be from the automotive sector for maximum relevance."
+      question: "Is this seminar only for salespeople?",
+      answer: "While the RevUp Sales Summit is specifically designed for internet sales professionals, the principles and techniques taught are applicable across various sales industries. However, all examples and case studies will be from the automotive sector for maximum relevance."
     },
     {
       question: "What if I'm a complete beginner in sales?",
