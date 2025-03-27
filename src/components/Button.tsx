@@ -12,6 +12,11 @@ interface ButtonProps {
   animated?: boolean;
 }
 
+type ButtonElementProps = ButtonProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'href'>;
+type AnchorElementProps = ButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+type CombinedButtonProps = ButtonElementProps | AnchorElementProps;
+
 const Button = ({
   children,
   variant = 'primary',
@@ -21,7 +26,7 @@ const Button = ({
   href,
   animated = false,
   ...props
-}: ButtonProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'href'>) => {
+}: CombinedButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center font-semibold rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-revup-dark focus:ring-revup-red";
   
   const variants = {
@@ -52,6 +57,7 @@ const Button = ({
       <a 
         href={href} 
         className={buttonClasses}
+        onClick={onClick}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {children}
@@ -60,7 +66,11 @@ const Button = ({
   }
 
   return (
-    <button className={buttonClasses} onClick={onClick} {...props}>
+    <button 
+      className={buttonClasses} 
+      onClick={onClick} 
+      {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
       {children}
     </button>
   );
