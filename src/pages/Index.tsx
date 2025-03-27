@@ -48,8 +48,8 @@ const Index = () => {
       <Speakers />
       <Agenda />
       <Testimonials />
-      <FAQ />
       <Register />
+      <FAQ />
       <Footer />
     </div>
   );

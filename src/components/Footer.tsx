@@ -12,7 +12,7 @@ const Footer = () => {
               Rev<span className="text-revup-red">Up</span> Sales Summit
             </h3>
             <p className="text-revup-gray mb-4">
-              The premier event for automotive sales professionals ready to transform their careers and 10X their results.
+              The premier event for sales professionals ready to transform their careers and 10X their results.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-revup-gray hover:text-revup-red transition-colors">
