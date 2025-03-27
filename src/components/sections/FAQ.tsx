@@ -1,47 +1,14 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import SectionHeading from '../SectionHeading';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
-interface FAQItemProps {
-  question: string;
-  answer: string;
-  isOpen: boolean;
-  toggleOpen: () => void;
-}
-
-const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
-  return (
-    <div className="border-b border-white/10 last:border-b-0">
-      <button
-        className="flex justify-between items-center w-full py-5 text-left focus:outline-none px-6"
-        onClick={toggleOpen}
-      >
-        <h3 className="text-lg md:text-xl font-medium text-white pr-8">{question}</h3>
-        <div className="ml-auto">
-          {isOpen ? (
-            <ChevronUp className="text-revup-red flex-shrink-0" />
-          ) : (
-            <ChevronDown className="text-revup-red flex-shrink-0" />
-          )}
-        </div>
-      </button>
-      
-      <div
-        className={cn(
-          "overflow-hidden transition-all duration-300",
-          isOpen ? "max-h-96 opacity-100 pb-5 px-6" : "max-h-0 opacity-0"
-        )}
-      >
-        <p className="text-revup-gray whitespace-normal break-words">{answer}</p>
-      </div>
-    </div>
-  );
-};
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@/components/ui/accordion';
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  
   const faqData = [
     {
       question: "What's included in my registration?",
@@ -69,10 +36,6 @@ const FAQ = () => {
     }
   ];
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section id="faq" className="revup-section">
       <div className="revup-container">
@@ -82,15 +45,22 @@ const FAQ = () => {
         />
         
         <div className="max-w-3xl mx-auto bg-revup-dark-gray rounded-lg overflow-hidden shadow-lg">
-          {faqData.map((faq, index) => (
-            <FAQItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openIndex === index}
-              toggleOpen={() => toggleFAQ(index)}
-            />
-          ))}
+          <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
+            {faqData.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-b border-white/10 last:border-b-0"
+              >
+                <AccordionTrigger className="py-5 px-8 text-lg md:text-xl font-medium text-white hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-5 text-revup-gray">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
         
         <div className="text-center mt-12">
