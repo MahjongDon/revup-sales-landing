@@ -16,7 +16,7 @@ const SpeakerCard = ({ name, title, image, bio }: SpeakerProps) => {
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover object-center scale-110 transition-transform duration-500 hover:scale-115"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-revup-dark to-transparent opacity-70"></div>
       </div>
@@ -35,19 +35,19 @@ const Speakers = () => {
     {
       name: "John Maxwell",
       title: "Sales Legend & 5x NY Times Bestselling Author",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80&fit=facearea&facepad=2",
       bio: "With over 25 years of experience in automotive sales, John has helped thousands of sales professionals multiply their closing rates and transform their careers."
     },
     {
       name: "Sarah Johnson",
       title: "Digital Sales Strategist",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80&fit=facearea&facepad=2",
       bio: "Sarah's innovative approach to digital sales has revolutionized how top dealerships connect with customers. Her strategies have generated over $100M in sales."
     },
     {
       name: "Michael Rodriguez",
       title: "Closing Techniques Expert",
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80&fit=facearea&facepad=2",
       bio: "Known for his ability to close even the most challenging deals, Michael will reveal the psychological triggers that make customers say 'yes' every time."
     },
   ];
