@@ -7,16 +7,17 @@ interface SpeakerProps {
   title: string;
   image: string;
   bio: string;
+  imagePosition?: string;
 }
 
-const SpeakerCard = ({ name, title, image, bio }: SpeakerProps) => {
+const SpeakerCard = ({ name, title, image, bio, imagePosition = 'center' }: SpeakerProps) => {
   return (
     <div className="bg-revup-dark-gray rounded-lg overflow-hidden shadow-lg card-hover animate-scale-in">
       <div className="relative overflow-hidden h-72">
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-full object-cover object-center"
+          className={`w-full h-full object-cover object-${imagePosition}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-revup-dark to-transparent opacity-70"></div>
       </div>
@@ -36,7 +37,8 @@ const Speakers = () => {
       name: "John Maxwell",
       title: "Sales Legend & 5x NY Times Bestselling Author",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-      bio: "With over 25 years of experience in automotive sales, John has helped thousands of sales professionals multiply their closing rates and transform their careers."
+      bio: "With over 25 years of experience in automotive sales, John has helped thousands of sales professionals multiply their closing rates and transform their careers.",
+      imagePosition: "center 60%"
     },
     {
       name: "Sarah Johnson",
@@ -74,6 +76,7 @@ const Speakers = () => {
               title={speaker.title}
               image={speaker.image}
               bio={speaker.bio}
+              imagePosition={speaker.imagePosition}
             />
           ))}
         </div>
