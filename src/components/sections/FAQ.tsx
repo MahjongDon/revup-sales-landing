@@ -15,21 +15,23 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
   return (
     <div className="border-b border-white/10 last:border-b-0">
       <button
-        className="flex justify-between items-center w-full py-5 text-left focus:outline-none"
+        className="flex justify-between items-center w-full py-5 text-left focus:outline-none px-6"
         onClick={toggleOpen}
       >
-        <h3 className="text-lg md:text-xl font-medium text-white pr-16">{question}</h3>
-        {isOpen ? (
-          <ChevronUp className="text-revup-red flex-shrink-0" />
-        ) : (
-          <ChevronDown className="text-revup-red flex-shrink-0" />
-        )}
+        <h3 className="text-lg md:text-xl font-medium text-white pr-8">{question}</h3>
+        <div className="ml-auto">
+          {isOpen ? (
+            <ChevronUp className="text-revup-red flex-shrink-0" />
+          ) : (
+            <ChevronDown className="text-revup-red flex-shrink-0" />
+          )}
+        </div>
       </button>
       
       <div
         className={cn(
           "overflow-hidden transition-all duration-300",
-          isOpen ? "max-h-96 opacity-100 pb-5 pr-16" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100 pb-5 px-6" : "max-h-0 opacity-0"
         )}
       >
         <p className="text-revup-gray">{answer}</p>
