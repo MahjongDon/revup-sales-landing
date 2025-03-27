@@ -16,7 +16,7 @@ const SpeakerCard = ({ name, title, image, bio }: SpeakerProps) => {
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-full object-cover object-center scale-105 transition-transform duration-500 hover:scale-110"
+          className="w-full h-full object-cover object-center scale-50 transition-transform duration-500 hover:scale-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-revup-dark to-transparent opacity-70"></div>
       </div>
