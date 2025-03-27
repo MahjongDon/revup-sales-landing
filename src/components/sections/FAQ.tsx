@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import SectionHeading from '../SectionHeading';
 import { ChevronDown, ChevronUp } from 'lucide-react';
@@ -34,7 +33,7 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
           isOpen ? "max-h-96 opacity-100 pb-5 px-6" : "max-h-0 opacity-0"
         )}
       >
-        <p className="text-revup-gray">{answer}</p>
+        <p className="text-revup-gray whitespace-normal break-words">{answer}</p>
       </div>
     </div>
   );
